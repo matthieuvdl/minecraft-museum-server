@@ -1,4 +1,5 @@
 const express = require('express');
+const MinecraftAPI = require('minecraft-api');
 const app = express();
 const server = require('http').createServer(app);
 const path = require('path')
@@ -27,7 +28,13 @@ io.on('connection', (socket) => {
         console.log('-> new player', socket.id)
         players[socket.id] = data
         players[socket.id].id = socket.id
-        players[socket.id].skin = Math.floor(Math.random() * 8)
+        // Get UUID from minecraft usernames
+        const setSkin = (playerName) => {
+            MinecraftAPI.uuidForName(playerName)
+                .then(uuid => players[socket.id].skin = `https://minotar.net/skin/${uuid}`)
+                .catch(players[socket.id].skin = Math.floor(Math.random() * 8))
+        }
+        setSkin(data.name)
         console.log(players)
         socket.emit('init', players)
     })
