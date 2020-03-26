@@ -1,4 +1,4 @@
-<h1 align="center">Minecraft Museum Server ⛏ ! </h1>
+<h1 align="center">Minecraft Museum Server ⚙️ ! </h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg" />
