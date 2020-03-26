@@ -3,9 +3,9 @@ const app = express();
 const server = require('http').createServer(app);
 const path = require('path')
 const io = require('socket.io')(server);
-const port = 80
+const port = 8081
 
-server.listen(port);
+server.listen(process.env.PORT || port)
 console.log(`Minecraft Museum Server running on port ${port}`)
 
 // Express define static dir
